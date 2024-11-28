@@ -1,0 +1,33 @@
+{
+  "items": [
+    {
+      "id": "caff",
+      "objectName": "Watch",
+      "location": "1.8K Ground Floor",
+      "datetime": "2024-11-26T22:13",
+      "contactPerson": "1.8K Security Guard"
+    },
+    {
+      "id": "a21c",
+      "objectName": "Air Podes",
+      "location": "1K hostel",
+      "datetime": "2024-11-26T23:23",
+      "contactPerson": "B5 03 1.8K"
+    },
+    {
+      "id": "04f0",
+      "objectName": "I pad",
+      "location": "Metallurgy",
+      "datetime": "2024-11-26T23:37",
+      "contactPerson": "Block 12 warden"
+    },
+    {
+      "id": "81e3",
+      "objectName": "Redmi 9 Power",
+      "location": "IFC B",
+      "datetime": "2024-11-27T16:28",
+      "contactPerson": "IFC B incharge",
+      "imageUrl": "https://i.ibb.co/2qxQBBg/wallpaperflare-com-wallpaper.jpg"
+    }
+  ]
+}
