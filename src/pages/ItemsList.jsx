@@ -55,7 +55,9 @@ const ItemsList = () => {
         // const result = await response.json();
         // alert("Marked as collected item ", result);
 
-        const res = await fetch("/api/items");
+        const res = await fetch(
+          "https://6747017738c8741641d503ba.mockapi.io/items"
+        );
         const result = await res.json();
         const sortedItems = result.sort(
           (a, b) => new Date(b.datetime) - new Date(a.datetime)
