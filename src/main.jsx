@@ -27,14 +27,14 @@ const Main = () => {
   }
 
   return (
-    <ClerkProvider publishableKey={clerkFrontendApi}>
-      <SignedIn>
+    // <ClerkProvider publishableKey={clerkFrontendApi}>
+//{/*       <SignedIn> */}
         <App />
-      </SignedIn>
-      <SignedOut>
-        <RedirectToSignUp />
-      </SignedOut>
-    </ClerkProvider>
+//{/*       </SignedIn> */}
+//{/*       <SignedOut> */}
+//{/*         <RedirectToSignUp /> */}
+//{/*       </SignedOut> */}
+//{/*     </ClerkProvider> */}
   );
 };
 
