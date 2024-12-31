@@ -31,19 +31,20 @@ const Main = () => {
   }
 
   return (
-    // <ClerkProvider publishableKey={clerkFrontendApi}>
-    //   <SignedIn>
-    <App />
-    /*{ </SignedIn>
+    <ClerkProvider publishableKey={clerkFrontendApi}>
+      <SignedIn>
+        <App />
+        /*
+      </SignedIn>
       <SignedOut>
         <RedirectToSignUp />
       </SignedOut>
-    </ClerkProvider> }*/
+    </ClerkProvider>
   );
 };
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Main />
+    <App />
   </StrictMode>
 );
