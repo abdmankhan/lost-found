@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Spinner from "./Spinner";
-import {toast, ToastContainer} from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
 export default function AddItem() {
-  
   const [formData, setFormData] = useState({
     objectName: "",
     location: "",
-    datetime: "",  // will be set to current date and time
+    datetime: "", // will be set to current date and time
     contactPerson: "",
-    status : false,
+    status: false,
   });
 
   const navigate = useNavigate();
@@ -55,13 +54,18 @@ export default function AddItem() {
     e.preventDefault();
     setLoading(true);
     setProgressStage("Uploading image...");
-    if (!formData.objectName || !formData.location || !formData.contactPerson || !formData.datetime) {
+    if (
+      !formData.objectName ||
+      !formData.location ||
+      !formData.contactPerson ||
+      !formData.datetime
+    ) {
       toast.error("Please fill in all the fields.");
       setLoading(false);
       return;
-    } 
-    if(!imageFile){
-      toast.error()
+    }
+    if (!imageFile) {
+      toast.error();
       setLoading(false);
       return;
     }
@@ -103,7 +107,7 @@ export default function AddItem() {
           setFormData({
             objectName: "",
             location: "",
-            datetime: "",  // Reset datetime after submission
+            datetime: "", // Reset datetime after submission
             contactPerson: "",
           });
           setImageFile(null);
@@ -122,7 +126,7 @@ export default function AddItem() {
       setProgressStage("");
       toast.success("Lost item added successfully");
       setTimeout(() => {
-        navigate('/items-list');
+        navigate("/items-list");
       }, 1500);
     }
   };

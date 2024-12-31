@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { ClerkProvider, SignedIn, SignedOut, RedirectToSignUp } from "@clerk/clerk-react";
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  RedirectToSignUp,
+} from "@clerk/clerk-react";
 import { createRoot } from "react-dom/client";
 import Spinner from "../src/pages/Spinner";
 import App from "./App";
 import { StrictMode } from "react";
 import "./index.css";
-
 
 const clerkFrontendApi =
   "pk_test_aGVscGluZy1lbGVwaGFudC03Ny5jbGVyay5hY2NvdW50cy5kZXYk";
@@ -27,14 +31,14 @@ const Main = () => {
   }
 
   return (
-    <ClerkProvider publishableKey={clerkFrontendApi}>
-      <SignedIn>
-        <App />
-      </SignedIn>
+    // <ClerkProvider publishableKey={clerkFrontendApi}>
+    //   <SignedIn>
+    <App />
+    /*{ </SignedIn>
       <SignedOut>
         <RedirectToSignUp />
       </SignedOut>
-    </ClerkProvider>
+    </ClerkProvider> }*/
   );
 };
 
