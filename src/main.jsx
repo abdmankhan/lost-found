@@ -1,18 +1,9 @@
 import React, { useState, useEffect } from "react";
-import {
-  ClerkProvider,
-  SignedIn,
-  SignedOut,
-  RedirectToSignUp,
-} from "@clerk/clerk-react";
 import { createRoot } from "react-dom/client";
 import Spinner from "../src/pages/Spinner";
 import App from "./App";
 import { StrictMode } from "react";
 import "./index.css";
-
-const clerkFrontendApi =
-  "pk_test_aGVscGluZy1lbGVwaGFudC03Ny5jbGVyay5hY2NvdW50cy5kZXYk";
 
 const Main = () => {
   const [loading, setLoading] = useState(true);
@@ -27,24 +18,14 @@ const Main = () => {
   }, []);
 
   if (loading) {
-    return <Spinner loading={loading} progressStage="Loading..." />;
+    return <Spinner loading={loading} progressStage="Loadinggg..." />;
   }
 
-  return (
-    <ClerkProvider publishableKey={clerkFrontendApi}>
-      <SignedIn>
-        <App />
-        /*
-      </SignedIn>
-      <SignedOut>
-        <RedirectToSignUp />
-      </SignedOut>
-    </ClerkProvider>
-  );
+  return <App />;
 };
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <Main />
   </StrictMode>
 );

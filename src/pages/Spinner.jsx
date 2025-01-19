@@ -5,11 +5,12 @@ import ClipLoader from "react-spinners/ClipLoader";
 const override = {
   display: "block",
   margin: "100px auto",
+  textAlign : "center",
 };
 
 const Spinner = ({ loading, progressStage }) => {
   return (
-    <div>
+    <div style={{textAlign : "center"}}>
       <ClipLoader
         color="#4338ca"
         loading={loading}
