@@ -17,9 +17,7 @@ const ItemsList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(
-          "https://6747017738c8741641d503ba.mockapi.io/items"
-        );
+        const res = await fetch("http://localhost:5000/api/items");
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
