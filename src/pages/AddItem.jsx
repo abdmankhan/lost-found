@@ -92,13 +92,16 @@ export default function AddItem() {
           imageUrl: uploadedImageUrl,
         };
 
-        const response = await fetch("http://localhost:5000/api/items", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(completeData),
-        });
+        const response = await fetch(
+          "https://backend-gamma-bice-42.vercel.app/api/items",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(completeData),
+          }
+        );
 
         if (response.ok) {
           setFormData({

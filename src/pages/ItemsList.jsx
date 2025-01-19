@@ -17,7 +17,9 @@ const ItemsList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/items");
+        const res = await fetch(
+          "https://backend-gamma-bice-42.vercel.app/api/items"
+        );
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
@@ -38,7 +40,7 @@ const ItemsList = () => {
 
   const handleCheckboxChange = async (item) => {
     setIsUpdating(true);
-    const url = `https://6747017738c8741641d503ba.mockapi.io/items/${item.id}`;
+    const url = `https://backend-gamma-bice-42.vercel.app/api/items/${item.id}`;
     const data = { status: true };
     try {
       const response = await fetch(url, {
@@ -54,7 +56,7 @@ const ItemsList = () => {
         // alert("Marked as collected item ", result);
 
         const res = await fetch(
-          "https://6747017738c8741641d503ba.mockapi.io/items"
+          "https://backend-gamma-bice-42.vercel.app/api/items"
         );
         const result = await res.json();
         const sortedItems = result.sort(
