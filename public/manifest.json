@@ -2,6 +2,7 @@
   "name": "Lost & Found",
   "short_name": "LostFound",
   "start_url": "/lost-found/",
+  "scope": "/lost-found/",
   "display": "standalone",
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
