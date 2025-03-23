@@ -18,8 +18,9 @@ const ItemsList = () => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          "https://backend-gamma-bice-42.vercel.app/api/items"
+          "https://lost-found-backend-five.vercel.app/api/items"
         );
+        
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
@@ -40,8 +41,10 @@ const ItemsList = () => {
 
   const handleCheckboxChange = async (item) => {
     setIsUpdating(true);
-    const url = `https://backend-gamma-bice-42.vercel.app/api/items/${item.id}`;
-    const data = { status: true };
+
+    const url = `https://lost-found-backend-five.vercel.app/api/items/${item._id}`;
+    const data = { status: true }; // Ensure it matches backend expectations
+
     try {
       const response = await fetch(url, {
         method: "PUT",
@@ -51,28 +54,31 @@ const ItemsList = () => {
         body: JSON.stringify(data),
       });
 
-      if (response.ok) {
-        // const result = await response.json();
-        // alert("Marked as collected item ", result);
-
-        const res = await fetch(
-          "https://backend-gamma-bice-42.vercel.app/api/items"
-        );
-        const result = await res.json();
-        const sortedItems = result.sort(
-          (a, b) => new Date(b.datetime) - new Date(a.datetime)
-        );
-        setItems(sortedItems);
-      } else {
-        console.error("Update failed : ", response.statusText);
+      if (!response.ok) {
+        throw new Error(`Update failed: ${response.statusText}`);
       }
+
+      // Fetch updated list after successful update
+      const res = await fetch(
+        "https://lost-found-backend-five.vercel.app/api/items");
+      if (!res.ok) {
+        throw new Error("Failed to fetch updated items");
+      }
+
+      const result = await res.json();
+      const sortedItems = result.sort(
+        (a, b) => new Date(b.datetime) - new Date(a.datetime)
+      );
+      setItems(sortedItems);
+      toast.success("Marked as found");
     } catch (error) {
-      console.error("Error Occured : ", error);
+      console.error("Error occurred:", error);
+      toast.error("Failed to mark as found");
     } finally {
       setIsUpdating(false);
-      toast.success("Marked as found");
     }
   };
+
 
   return (
     <section className="flex items-center justify-center min-h-screen bg-gradient-to-b from-blue-200 via-white to-blue-100 p-4">

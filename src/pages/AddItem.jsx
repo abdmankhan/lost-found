@@ -93,7 +93,7 @@ export default function AddItem() {
         };
 
         const response = await fetch(
-          "https://backend-gamma-bice-42.vercel.app/api/items",
+          "https://lost-found-backend-five.vercel.app/api/items",
           {
             method: "POST",
             headers: {
